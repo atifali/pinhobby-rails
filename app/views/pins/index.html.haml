@@ -7,3 +7,8 @@
 				%p.user
 				Submitted by
 				= pin.user.email
+				%br/
+				%br/
+				%p.upvotes
+					%span.glyphicon.glyphicon-heart
+						= pin.get_upvotes.size
