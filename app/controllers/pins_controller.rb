@@ -1,6 +1,7 @@
 class PinsController < ApplicationController
 	before_action :find_pin, only: [:show, :edit, :update, :destroy, :upvote]
 	before_action :authenticate_user!, except: [:index, :show]
+	before_action :authorized_user, only: [:edit, :update, :destroy]
 
 	def index
 		@pins = Pin.all.order("created_at DESC")
@@ -53,5 +54,10 @@ class PinsController < ApplicationController
 	def find_pin
 		@pin = Pin.find(params[:id])
 	end
+
+	def authorized_user
+      @pin = current_user.pins.find_by(id: params[:id])
+      redirect_to :back, notice: "Not authorized to change this pin" if @pin.nil?
+    end
 
 end
