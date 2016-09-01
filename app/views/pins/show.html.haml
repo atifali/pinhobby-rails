@@ -21,3 +21,15 @@
 								- if @pin.user == current_user
 									= link_to "Edit", edit_pin_path, class: "btn btn-default"
 									= link_to "Delete", pin_path, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default"
+				.row
+					%h3.comments_title
+						= @pin.comments.count
+						Comments
+					#comments
+						= render :partial => @pin.comments
+					%br/
+					= simple_form_for [@pin, Comment.new]  do |f|
+						.field
+							= f.text_area :body, class: "form-control"
+						%br/
+						= f.submit "Add Comment", class: "btn btn-primary"
