@@ -47,7 +47,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # pin_hobby gems
 gem 'haml', '~> 5.0'
-gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
+gem 'bootstrap-sass', '~> 3.4'
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
 gem 'coffee-script-source', '1.8.0'
 gem 'devise', '~> 4.2'
